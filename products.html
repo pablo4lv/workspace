@@ -36,10 +36,19 @@
       </div>
     </div>
   </nav>
-  <main class="pb-5 container">
+
+  <!-- Cambié la clase del main a pb-5 para que tenga el mismo estilo que categories.html, y añadí un div con un título y párrafo con las mismas clases que los de categories.html -->
+  <main class="pb-5">
+    <div class="text-center p-4">
+      <h2>Productos</h2>
+      <p class="lead" id="catname">Verás aquí todos los productos de la categoría </p>
+    </div>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="row">
+        
+        <!-- Agregué un div con clase "list-group" (igual que en categories.html) y con id "prod-list-container" para luego agregar los productos desde products.js -->
+        <div class="list-group" id="prod-list-container">
+        </div>
       </div>
     </div>
   </main>
