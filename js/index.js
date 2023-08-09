@@ -12,3 +12,9 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+// Redirige el index al login en caso de no estar logeado
+var loggedin = localStorage.getItem("email")
+if (!loggedin){
+    window.location = "login.html"
+}
