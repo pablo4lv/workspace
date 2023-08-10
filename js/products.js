@@ -3,7 +3,7 @@ const id = localStorage.catID;
 // Constante con la url de la categoría.
 const P_URL = PRODUCTS_URL + id + EXT_TYPE;
 // Variable para almacenar la categoría.
-let Category = [];
+let Category = null;
 
 // Muestra la lista de productos al terminar de cargarse la página.
 document.addEventListener("DOMContentLoaded", function(e){
