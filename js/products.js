@@ -5,7 +5,7 @@ const P_URL = PRODUCTS_URL + id + EXT_TYPE;
 // Variable para almacenar la categoría.
 let Category = null;
 
-//a
+//Variables utilizadas más adelante en el filtro según precio.
 let minCount = undefined;
 let maxCount = undefined;
 
@@ -22,31 +22,44 @@ function showProductsList(){
     // Variable para almacenar el contenido y luego agregarlo al body.
     let htmlContentToAppend = "";
     // Agrega la información de los productos al párrafo.
-    for(let i = 0; i < prod.length; i++){
-        
-        //a
-        if (((minCount == undefined) || (minCount != undefined && parseInt(prod[i].cost) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(prod[i].cost) <= maxCount))){
+    if (prod[0] !== undefined){
+        for(let i = 0; i < prod.length; i++){
+            
+            //Filtra los elementos del array cuyo precio se encuentre dentro del rango definido por minCount y maxCount.
+            if (((minCount == undefined) || (minCount != undefined && parseInt(prod[i].cost) >= minCount)) &&
+                ((maxCount == undefined) || (maxCount != undefined && parseInt(prod[i].cost) <= maxCount))){
 
-            htmlContentToAppend += `
-            <div onclick="setProdID(${prod[i].id})" class="list-group-item list-group-item-action cursor-active">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="${prod[i].image}" alt="${prod[i].description}" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${prod[i].name + " - " + prod[i].currency +" "+ prod[i].cost}</h4>
-                            <small class="text-muted">${prod[i].soldCount} artículos disponibles</small>
+                    //Filtra los elementos del array que incluyan el texto del input en su nombre o descripcion. 
+                    if(searchterms === "" || 
+                    (prod[i].name.toLowerCase().includes(searchterms) || prod[i].description.toLowerCase().includes(searchterms)))
+
+                {
+                    htmlContentToAppend += `
+                    <div onclick="setProdID(${prod[i].id})" class="list-group-item list-group-item-action cursor-active">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="${prod[i].image}" alt="${prod[i].description}" class="img-thumbnail">
+                            </div>
+                            <div class="col">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">${prod[i].name + " - " + prod[i].currency +" "+ prod[i].cost}</h4>
+                                    <small class="text-muted">${prod[i].soldCount} artículos disponibles</small>
+                                </div>
+                                <p class="mb-1">${prod[i].description}</p>
+                            </div>
                         </div>
-                        <p class="mb-1">${prod[i].description}</p>
                     </div>
-                </div>
-            </div>
-            `
-        }
+                    `
+                }
+            }
 
-        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+            document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+        }}
+
+    //Si la categoría no tiene productos, muestra en pantalla... algo?
+    else
+    {
+        document.getElementById("prod-list-container").innerHTML = `NO HAY`
     }
 }
 
@@ -75,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         sortAndShowProducts(DECRECIENTE, Category.products);
     });
 
-    //a
+    //Limpia los campos del filtro y resetea las variables minCount y maxCount.
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
         document.getElementById("rangeFilterCountMax").value = "";
@@ -86,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         showProductsList();
     });
 
-    //a
+    //Evento para setear las variables minCount y maxCount según el rango de precio de los inputs. Luego filtra el array y lo muestra.
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
         //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
         //de productos por categoría.
@@ -111,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
-//a
+//Constantes auxiliares para reordenar el array.
 let currentProductsArray = null;
 let currentSortCriteria = undefined;
 
@@ -128,12 +141,12 @@ function sortAndShowProducts(sortCriteria, productsArray){
     showProductsList();
 }
 
-//a
+//Constantes para reordenar el array.
 const CRECIENTE = "creciente";
 const DECRECIENTE = "decreciente"
 const REELEVANCIA = "reelevancia";
 
-//a
+//Reordena el array según el criterio.
 function sortProducts(criteria, array){
     let result = [];
     if (criteria === REELEVANCIA)
@@ -160,13 +173,12 @@ function sortProducts(criteria, array){
     return result;
 }
 
-// const search = document.getElementById("search");
-// const results = document.getElementById("results");
-// let searchterms = "";
+//Constantes para la barra de búsqueda y su valor.
+const search = document.getElementById("search");
+let searchterms = "";
 
-// search.addEventListener("input",(e) => {
-//     searchterms = algo
-// })
-
-
-
+//Evento que muestra los elementos filtrados cada vez que se hace input en la barra.
+search.addEventListener("input",(e) => {
+    searchterms = e.target.value.toLowerCase();
+    showProductsList()
+})
