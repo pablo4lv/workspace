@@ -49,14 +49,37 @@
       <div class="row">
         <div class="col text-end">
           <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
-            <input type="radio" class="btn-check" name="options" id="precio">
-            <label class="btn btn-light" for="precio">Ordenar por precio</label>
-            <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
-            <label class="btn btn-light" for="sortByCount">Reelevancia</i></label>
+            <input type="radio" class="btn-check" name="options">
+            <label class="btn btn-light" for="precio" id="precio1"><i class="fas fa-sort-amount-down-alt"> $</i></label>
+            <input type="radio" class="btn-check" name="options">
+            <label class="btn btn-light" for="precio" id="precio2"><i class="fas fa-sort-amount-down"> $</i></label>
+            <input type="radio" class="btn-check" name="options">
+            <label class="btn btn-light" for="sortByCount" id="sortByCount"><i class="fas fa-sort-amount-down"> Rel</i></label>
           </div>
         </div>
       </div>
-      
+      <div class="row">
+        <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
+          <div class="row container p-0 m-0">
+            <div class="col">
+              <p class="font-weight-normal text-end my-2">Precio</p>
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+            </div>
+            <div class="col-3 p-0">
+              <div class="btn-group" role="group">
+                <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+                <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="row">
         <!-- Agregué un div con clase "list-group" (igual que en categories.html) y con id "prod-list-container" para luego agregar los productos desde products.js -->
         <div class="list-group" id="prod-list-container">
