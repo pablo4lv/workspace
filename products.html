@@ -20,7 +20,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
+        <ul class="navbar-nav w-100 justify-content-between" id="barra">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Inicio</a>
           </li>
@@ -30,16 +30,64 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-          </li>
         </ul>
       </div>
     </div>
   </nav>
-  <main class="pb-5 container">
+
+  <!-- Cambié la clase del main a pb-5 para que tenga el mismo estilo que categories.html, y añadí un div con un título y párrafo con las mismas clases que los de categories.html -->
+  <main class="pb-5">
+    <div class="text-center p-4">
+      <h2>Productos</h2>
+      <p class="lead" id="catname">Verás aquí todos los productos de la categoría </p>
+    </div>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+
+      <!-- Filtro -->
+      <div class="row">
+        <div class="col text-end">
+          <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+            <input type="radio" class="btn-check" name="options">
+            <label class="btn btn-light" for="precio" id="precio1"><i class="fas fa-sort-amount-down-alt"> $</i></label>
+            <input type="radio" class="btn-check" name="options">
+            <label class="btn btn-light" for="precio" id="precio2"><i class="fas fa-sort-amount-down"> $</i></label>
+            <input type="radio" class="btn-check" name="options">
+            <label class="btn btn-light" for="sortByCount" id="sortByCount"><i class="fas fa-sort-amount-down"> Rel</i></label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-9 offset-4 col-md-12 mb-1 container">
+          <div class="row container p-0 m-0">
+            
+            <!-- text input -->
+            <div class="col">
+              <input class="input-group-text" type="text" name="search" id="search" placeholder="Buscador">
+            </div>
+
+            <div class="col">
+              <p class="font-weight-normal text-end my-2">Precio</p>
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+            </div>
+            <div class="col-3 p-0">
+              <div class="btn-group" role="group">
+                <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+                <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Agregué un div con clase "list-group" (igual que en categories.html) y con id "prod-list-container" para luego agregar los productos desde products.js -->
+        <div class="list-group" id="prod-list-container">
+        </div>
       </div>
     </div>
   </main>

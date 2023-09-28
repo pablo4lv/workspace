@@ -8,27 +8,41 @@
   
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: rgb(248, 249, 250);
-    }
-  </style>
+  <link href="css/login.css" rel="stylesheet">
 </head>
 
 <body>
   <main class="mt-5">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      
+        <form class="search-container" id="formSearch">
+         <center><img class="mb-4" src="img/login.png" alt="" width="500" height="auto"></center>
+          <h1 class="h3 mb-3 fw-normal">Inciar Sesión</h1>
+      
+          <div class="form-floating">
+            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+            <label for="floatingInput">Correo electrónico</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="password" placeholder="Password" required>
+            <label for="floatingPassword">Contraseña</label>
+          </div>
+      
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" checked="checked" value="remember-me"> Recuérdame
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
+          <p class="mt-5 mb-3 text-muted">Grupo 5 Jovenes a programar © 2023</p>
+        </form>
+      
     </div>
   </main>
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
+
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>

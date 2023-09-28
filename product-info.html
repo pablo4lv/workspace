@@ -20,7 +20,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
+        <ul class="navbar-nav w-100 justify-content-between" id="barra">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Inicio</a>
           </li>
@@ -30,16 +30,51 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-          </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="row">
+
+        <!-- Div con id "prod-list-container" para luego agregar el producto -->
+        <div class="list-group" id="prod-container">
+        </div>
+        <!-- Div con id "comments para agregar los comentarios" -->
+        <div class="list-group" id="comments">
+        </div>
+        <!-- Div con el formulario para agregar comentarios -->
+        <div class="comentar">
+          <br>
+          <h4>Comentar</h4>
+          <form>
+            <label>Tu opinión:</label>
+            <br>
+            <div class="col-6">
+              <textarea class="form-control" id="text-comment"></textarea>
+            </div>
+            <br>
+            <label>Tu puntuación:</label>
+            <br>
+            <div class="col-2">
+              <select class="form-select" id="comment-rate">
+                <option value="elige"hidden selected disabled>-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <br>
+            <button class="btn btn-primary btn-lg" type="submit" id="btn">Enviar</button>
+          </form>
+        </div>
+        <!-- Div con id "related" para agregar los productos relacionados --> 
+        <div id="related">
+        </div>
+        
       </div>
     </div>
   </main>

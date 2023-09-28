@@ -188,3 +188,39 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+/* Estilo para las estrellas de los comentarios. */
+
+.ratings{
+  margin-left: 5px;
+}
+
+.ratings i{
+  color:#cecece;
+}
+
+.rating-color{
+  color:#fbc634 !important;
+}
+
+
+/* Estilos para el círculo de perfil */
+.profile-circle {
+  width: 40px; /* Ancho del círculo */
+  height: 40px; /* Altura del círculo */
+  background-color: #3498db; /* Color de fondo del círculo (puedes cambiarlo) */
+  border-radius: 50%; /* Borde redondeado para crear un círculo */
+  display: inline-block;
+  margin-right: 10px; /* Espacio entre el círculo y el correo electrónico */
+  background-image: url('ruta_de_tu_imagen_de_perfil.jpg'); /* Ruta de tu imagen de perfil */
+  background-size: cover; /* Ajusta la imagen de perfil al tamaño del círculo */
+  background-position: center; /* Centra la imagen en el círculo */
+}
+/* Estilos para la imagen de perfil */
+.profile-image {
+  width: 40px; /* Ancho de la imagen */
+  height: 40px; /* Altura de la imagen */
+  border-radius: 50%; /* Borde redondeado para crear un círculo */
+  margin-right: 10px; /* Espacio entre la imagen y el correo electrónico */
+}
+
